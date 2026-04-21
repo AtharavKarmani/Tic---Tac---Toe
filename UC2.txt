@@ -1,0 +1,35 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class TossHandler {
+
+    public static void performToss() {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        int toss = random.nextInt(2); // 0 or 1
+
+        if (toss == 0) {
+            System.out.println("You won the toss!");
+
+            System.out.print("Choose your symbol (X/O): ");
+            char userSymbol = scanner.next().toUpperCase().charAt(0);
+
+            char computerSymbol = (userSymbol == 'X') ? 'O' : 'X';
+
+            System.out.println("You are: " + userSymbol);
+            System.out.println("Computer is: " + computerSymbol);
+            System.out.println("You will play first.");
+
+        } else {
+            System.out.println("Computer won the toss!");
+
+            char computerSymbol = (random.nextInt(2) == 0) ? 'X' : 'O';
+            char userSymbol = (computerSymbol == 'X') ? 'O' : 'X';
+
+            System.out.println("Computer chose: " + computerSymbol);
+            System.out.println("You are: " + userSymbol);
+            System.out.println("Computer will play first.");
+        }
+    }
+}
